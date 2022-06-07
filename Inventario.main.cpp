@@ -11,7 +11,7 @@
 using namespace std;
 
 string productos[5][3] = {
-    { "001", "iPhone 12 Pro", "0" },
+    { "001", "iPhone 12 Pro", "10" },
     { "002", "Laptop Dell", "5" },
     { "003", "Monitor Samsung", "2" },
     { "004", "Mouse", "100" },
@@ -61,7 +61,23 @@ void ingresoDeInventario() {
 
     movimientoInventario(codigo, cantidad, "+");
 }
+void AjusteDeInventarioPositivo() {
+    string codigo = "";
+    int cantidad = 0;
 
+    system("cls");
+    cout << endl;
+    cout << "Ajuste Positivo de Productos de inventario" << endl;
+    cout << "**********************************" << endl;
+    cout << "Ingrese el codigo del producto: ";
+    cin >> codigo;
+    cout << endl;
+    cout << "Ingrese la cantidad del producto: ";
+    cin >> cantidad;
+    cout << endl;
+
+    movimientoInventario(codigo, cantidad, "+");
+}
 void salidaDeInventario() {
     string codigo = "";
     int cantidad = 0;
@@ -99,6 +115,8 @@ int main(int argc, char const *argv[])
         cout << "1 - Productos" << endl;
         cout << "2 - Ingreso de Inventario" << endl;
         cout << "3 - Salida de Inventario" << endl;
+        cout << "4 - Ajuste Positivo" << endl;
+        cout << "5 - Ajuste Negativo" << endl;
         cout << "0 - Salir" << endl;
         cout << "Ingrese una opcion del menu: ";
         cin >> opcion;
@@ -114,7 +132,10 @@ int main(int argc, char const *argv[])
         case 3:
             salidaDeInventario();
             break;
-        
+        case 4:
+            AjusteDeInventarioPositivo();
+            break;
+            
         default:
             break;
         }
